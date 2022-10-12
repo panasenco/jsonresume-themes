@@ -1,0 +1,24 @@
+{
+  "name": "jsonresume-themes",
+  "version": "0.0.0-alpha",
+  "description": "JSONResume themes that are strictly Handlebars templates.",
+  "main": "index.js",
+  "scripts": {
+    "prepare": "node prepare.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/panasenco/jsonresume-themes.git"
+  },
+  "author": "Aram Panasenco",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/panasenco/jsonresume-themes/issues"
+  },
+  "homepage": "https://github.com/panasenco/jsonresume-themes#readme",
+  "devDependencies": {
+    "handlebars": "^4.7.7",
+    "handlebars-partial-file": "^1.0.0"
+  }
+}
