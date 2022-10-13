@@ -2,9 +2,9 @@
   "name": "jsonresume-themes",
   "version": "0.0.0-alpha",
   "description": "JSONResume themes that are strictly Handlebars templates.",
-  "main": "index.js",
+  "main": "dist/jsonresume-themes.js",
   "scripts": {
-    "prepare": "node prepare.js",
+    "prepare": "webpack",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -19,6 +19,9 @@
   "homepage": "https://github.com/panasenco/jsonresume-themes#readme",
   "devDependencies": {
     "handlebars": "^4.7.7",
-    "handlebars-partial-file": "^1.0.0"
+    "handlebars-loader": "^1.7.2",
+    "handlebars-partial-file": "^1.0.0",
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0"
   }
 }

@@ -4,24 +4,28 @@
 JSON Resume is an awesome open standard, and the themes that the community has built are outstanding. Unfortunately, each theme is its own package with its own dependencies, and most often an assumption of non-browser use only. For [resume-optimizer](https://github.com/panasenco/resume-optimizer), I need to be able to render multiple JSON Resume themes in a web browser, hence this repo.
 
 
-## Repository principles
+## Design principles
 
-1.  Only [Handlebars](https://handlebarsjs.com/) templates will be included - no other templating languages are allowed.
-2.  It should be possible to [precompile](https://handlebarsjs.com/installation/precompilation.html) each included JSON Resume template. Precompiled templates should be able to perfectly render any valid version 1.0 JSON Resume. Therefore, there must be no logic external to the .hbs template itself.
-3.  Certain standard [Handlebars partials](https://handlebarsjs.com/guide/partials.html) are allowed:
-    - [handlebars-partials-file](https://www.npmjs.com/package/handlebars-partial-file):
-      Allows files in the same directory to be included via `{{> filename }}`
-    
-    If you want more partials included, open an issue or pull request modifying `package.json` and `prepare.js`.
+1.  Generate a single module file `dist/jsonresume-themes.js` containing multiple resume themes.
+2.  The file `dist/jsonresume-themes.js` should be usable in both web browsers and Node.js.
+    You should be able to get the themes module by either of these methods:
+    - Call `require("jsonresume-themes")` after installing `jsonresume-themes` through `npm`.
+    - Call `require("path/to/jsonresume-themes.js")`.
+    - Include it in a `<script>` tag in a web browser and then reference with `window.jsonResumeThemes`.
+3.  The referenced module should contain callable functions that take in valid JSON Resume objects and output HTML strings. For example, the call `window.jsonResumeThemes.onepage({...})` should return an HTML string.
 
-
-## Rendering the templates
+## Usage
 
 Clone the repo and then
 
 ```
 npm install
-npm run prepare
 ```
 
-This will compile all the template files named `index.html.hbs` in folders beginning with `theme-` into Handlebars precompiled `.js` files in the folder `dist/`.
+This will compile all template files with extension `.hbs` into the file `dist/jsonresume-themes.js`
+
+
+## Contributing
+
+Convert an existing Handlebars-based JSON Resume theme to a Handlebars template that can be packaged with [handlebars-loader](https://github.com/pcardune/handlebars-loader) (follow this link to see how to include other files inside the template). Copy the original license to the template's folder. Add a `README.md` file containing a link to the original theme.
+
