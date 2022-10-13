@@ -12,7 +12,7 @@ JSON Resume is an awesome open standard, and the themes that the community has b
     - Call `require("jsonresume-themes")` after installing `jsonresume-themes` through `npm`.
     - Call `require("path/to/jsonresume-themes.js")`.
     - Include it in a `<script>` tag in a web browser and then reference with `window.jsonResumeThemes`.
-3.  The referenced module should contain callable functions that take in valid JSON Resume objects and output HTML strings. For example, the call `window.jsonResumeThemes.onepage({...})` should return an HTML string.
+3.  The referenced module should contain callable functions that take in an object `{resume: {...}}` containing valid JSON Resume objects and output HTML strings. For example, the call `window.jsonResumeThemes.onepage({resume: {...}})` should return an HTML string.
 
 ## Usage
 
